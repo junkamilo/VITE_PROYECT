@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(129, 163, 131, 0.947);
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .menu__link {
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+  form{
+    width: 20%;
+    height: 20vh;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+input{
+    height: 20px;
+    border: none;
+    border: 1px solid black;
+}
+table{
+  border: 1px solid black;
+}
+table > thead{
+  background-color: aqua;
+}
+table > tbody{
+  background-color: aquamarine;
+}
+.botonera {
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.1rem;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  text-decoration: none;
+  border-radius: 5px;
+  border: solid 1px var(--primary-color);
+  text-align: center;
+  font-weight: 600;
+  transition: color 0.5s;
+  transition: background-color 1s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  border: solid 1px var(--secondary-color);
+  transition: color 0.5s;
+  transition: background-color 0.8s;
+}
+
+.btn--danger {
+  background-color: #d43030;
+  border: solid 1px #d43030;
+}
+
+.btn--samall {
+  font-weight: 300;
+  width: auto;
+  padding: 8px 10px;
+}
+.editar{
+  background-color: green;
+}

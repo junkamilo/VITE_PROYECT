@@ -23,6 +23,29 @@ export const categoriaController = async () =>{
                 .then((response) => response.json())
                 .then((json) => console.log(json));
  }
+
+ const listar = async () => {
+  const tabla = document.querySelector('tbody');
+  const solicitud =  await fetch('http://localhost:3000/api/categorias');
+  const datos = await solicitud.json();
+  console.log(datos.data);
+  
+
+  datos.forEach(({id, nombre, descripcion}) => {
+    const tr = document.createElement('tr');
+    const tdNombre = document.createElement('td');
+    const tdDescripcion = document.createElement('td');
+
+    tdNombre.textContent = nombre;
+    tdDescripcion.textContent = descripcion;
+
+    tr.append(tdNombre,tdDescripcion);
+    tabla.append(tr);
+
+  });
+ }
+
+ listar();
 form.addEventListener("submit" , guardar);
 
 }

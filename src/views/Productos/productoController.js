@@ -5,30 +5,7 @@ export const productoController = async() =>{
     const nombre = document.querySelector('#nombre');
     const precio = document.querySelector('#precio');
     const descripcion = document.querySelector('#descripcion');
-    const listar_categorias = document.querySelector('#categorias');
 
-    const cargarCategorias = async () => {
-        try {
-            const response = await fetch('http://localhost:3000/api/categorias');
-            const categorias = await response.json();
-
-            console.log(categorias);
-            
-            
-            categorias.forEach(categoria => {
-                const option = document.createElement('option');
-                option.value = categoria.id;
-                option.textContent = categoria.nombre;
-                listar_categorias.appendChild(option);
-            });
-        } catch (error) {
-            console.error('Error al cargar categorías:', error);
-        }
-        
-    }
-    
-    await cargarCategorias();
-    
     const guardar = (e) =>{
            e.preventDefault();
    

@@ -16,10 +16,10 @@ const routes = {
         controlador : inicioController 
     }
 }
-export const router = (app) => {
+export const router = async (app) => {
     const hash = location.hash.slice(1);
     const {template , controlador} = matchRoute(hash);  
-    loadView(app,template);
+    await loadView(app,template);
     controlador();
 }
 

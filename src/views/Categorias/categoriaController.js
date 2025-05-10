@@ -1,24 +1,28 @@
 export const categoriaController = async () =>{
-        const response = await fetch("http://localhost:3000/api/categorias");
-        const categorias = await response.json();
-        console.log(categorias.data);
-        
-        const tabla = document.querySelector("#tabla_categorias");
+ await new Promise(window.requestAnimationFrame);
 
-        const tabla_cuerpo = document.createElement("tbody");
-        const tr = document.createElement("tr");
-        const th = document.createElement("th");
-        th.textContent = "Nombre"
-        
-        tabla.append(tabla_cuerpo);
-        tabla_cuerpo.append(tr,th)
-        tr.appendChild(th);
+ const form = document.querySelector('form');
+ const nombre = document.querySelector('#nombre');
+ const descripcion = document.querySelector('#descripcion');
 
-        console.log(tabla_cuerpo);
+ const guardar = (e) =>{
+        e.preventDefault();
 
-        categorias.data.forEach(({nombre}) => {
-             const newRow = tabla_cuerpo.insertRow(0);
-             const newceldaNombre = newRow.insertCell(0);
-             newceldaNombre.innerText = nombre;
-        })
+        const data = {
+        nombre : nombre.value,
+        descripcion : descripcion.value
+        }
+
+        fetch('http://localhost:3000/api/categorias', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                  'Content-type': 'application/json; charset=UTF-8',
+                },
+              })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+ }
+form.addEventListener("submit" , guardar);
+
 }
